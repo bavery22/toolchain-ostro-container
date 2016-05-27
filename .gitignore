@@ -1,3 +1,13 @@
+*~
+*.o
+ceed/ceed
+codi/codi
+turff/turff
+outdir
+*#
+.#*
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
