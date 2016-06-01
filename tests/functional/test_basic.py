@@ -4,7 +4,7 @@ import unittest
 import subprocess
 
 
-# Placeholder for future python based codi/TURFF
+# Placeholder for future functional tests
 
 class BasicTests(unittest.TestCase):
     ''' Base class for testing '''

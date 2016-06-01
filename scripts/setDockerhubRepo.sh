@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG"
+echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
 TRAVIS_USER=`echo $TRAVIS_REPO_SLUG | cut -d '/' -f1`
 while read line; do
     echo $line

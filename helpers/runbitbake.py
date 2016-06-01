@@ -100,6 +100,8 @@ if __name__ == '__main__':
                         "extra configuration")
     parser.add_argument("--extralayers", action='append',
                         help="File containing extra bblayers")
+    parser.add_argument("--extraargs",default="",
+                        help="Argstr to use for bitbake. Like '-e' or '-D'")
 
     parser.add_argument("--pokydir", default="/home/yoctouser/poky",
                         required=True, help="Directory containing poky")
@@ -133,7 +135,7 @@ if __name__ == '__main__':
 
             cmd = '. {}/oe-init-build-env {} && '.format(args.pokydir,
                                                          builddir)
-            cmd += 'exec bitbake {}'.format(args.target)
+            cmd += 'exec bitbake %s %s'%format(args.extraargs,args.target)
             bitbake_process = subprocess.Popen(['/bin/bash', '-c', cmd],
                                                stdout=sys.stdout,
                                                stderr=sys.stderr, shell=False)

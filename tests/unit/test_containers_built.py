@@ -13,11 +13,7 @@ from utils.testutils import *
 
 class TestContainersBuilt(unittest.TestCase):
     def setUp(self):
-        self.sdkTargets = os.environ['TARGETS'].split()
-        self.sdkYPRelease = os.environ['YP_RELEASE']
-        self.zephyrRelease = os.environ['ZEPHYR_RELEASE']
         self.ostroRelease =  os.environ['OSTRO_RELEASE']
-        self.sdkCropsRelease = os.environ['CROPS_RELEASE']
         self.travisSlug = os.environ['TRAVIS_REPO_SLUG']
         self.dockerhubRepo = os.environ['DOCKERHUB_REPO']
         #print("travisSlug=%s"%(self.travisSlug))
@@ -25,7 +21,7 @@ class TestContainersBuilt(unittest.TestCase):
         self.cList=[]
         self.baseD={}
         self.baseD['x86-64']={}
-        self.baseD['x86-64']['name']="%s/toolchain-base:%s"%(self.dockerhubRepo,"latest")
+        self.baseD['x86-64']['name']="%s/ostrobuilder:%s"%(self.dockerhubRepo,self.ostroRelease)
         self.baseD['x86-64']['found']=False
         self.cList.append(self.baseD)
     def tearDown(self):
